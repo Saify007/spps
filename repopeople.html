@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GitHub</title>
+    <style>
+
+body{
+    background-color: white;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5em;
+    margin: 85px;
+}
+
+.info{
+    background-color: rgb(245, 244, 244);
+    box-shadow: 10px 10px 5px grey;
+    width: 750px;
+    border: 15px rgb(245, 244, 244);
+    padding: 30px;
+    margin: 15px;
+}
+
+.box{
+    background-color: rgb(245, 244, 244);
+    box-shadow: 10px 10px 5px grey;
+    width: 750px;
+    border: 15px rgb(245, 244, 244);
+    padding: 30px;
+    margin: 15px;
+}
+
+.img{
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-right: 55px;
+}
+
+  .box::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+    </style>
+ 
+    
+</head>
+<body>
+
+    <button id="fetch">Load GitHub Users</button>
+
+    <h1>Github Users</h1>
+
+    <section id="info"></section>
+
+    <script>
+        document.getElementById('fetch').addEventListener('click', loadm);
+
+        function loadm(){
+            var req = new XMLHttpRequest();
+            req.open('GET', 'https://api.github.com/users');
+
+            req.onload = function() {
+                if(req.status == 200){
+                    var people = JSON.parse(req.responseText);
+                    var optput = ' ';
+
+                    for(var i in people){
+                        optput += 
+                        '<div class="box">'+
+                        '<img class="img" src="'+people[i].avatar_url+' "width="185" height="185">' +
+                        '<ul>'+
+                        '<li>ID: '+people[i].id+'</li>' +
+                        '<li>Login: '+people[i].login + '</li>' +
+                        '<li>Type: '+people[i].type + '</li>' +
+                        '<li>Followers-url: '+people[i].followers_url + '</li>' +
+                        '<li>Gits-url: '+people[i].gists_url + '</li>' +
+                        '<li>Repos:'+people[i].repos_url+'</li>'+
+                        '</ul>'+
+                        '</div>';
+                        
+                        document.getElementById('info').innerHTML=optput;
+                    }
+                }
+            }
+            req.send();
+
+        }
+    </script>
+</body>
+</html>
