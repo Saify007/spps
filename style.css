@@ -63,7 +63,7 @@ section .title::before{
     left: 50%;
     width: 180px;
     height: 3px;
-    background: #111;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
     transform: translateX(-50%);
 }
 section .title::after{
@@ -71,9 +71,10 @@ section .title::after{
     bottom: -8px;
     left: 50%;
     font-size: 20px;
-    color: crimson;
+    color: #36d1dc → #5b86e5;
     padding: 0 5px;
-    background: #fff;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     transform: translateX(-50%);
 }
 
@@ -88,7 +89,8 @@ section .title::after{
 }
 .navbar.sticky{
     padding: 15px 0;
-    background: rgb(0, 0, 0);
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 .navbar .max-width{
     display: flex;
@@ -101,11 +103,11 @@ section .title::after{
     font-weight: 600;
 }
 .navbar .logo a span{
-    color: crimson;
+    color: #191970;
     transition: all 0.3s ease;
 }
 .navbar.sticky .logo a span{
-    color: #fff;
+    color: #191970;
 }
 .navbar .menu li{
     list-style: none;
@@ -113,22 +115,22 @@ section .title::after{
 }
 .navbar .menu li a{
     display: block;
-    color: #fff;
+    color: #191970;
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
 }
 .navbar .menu li a:hover{
-    color: crimson;
+    color: #191970;
 }
 .navbar.sticky .menu li a:hover{
-    color: #fff;
+    color: #191970;
 }
 
 /* menu btn styling */
 .menu-btn{
-    color: #fff;
+    color: #191970;
     font-size: 23px;
     cursor: pointer;
     display: none;
@@ -137,12 +139,12 @@ section .title::after{
     position: fixed;
     height: 45px;
     width: 42px;
-    background: crimson;
+    background: linear-gradient(to bottom, #66ffff 0%, #99ffcc 100%);
     right: 30px;
     bottom: 10px;
     text-align: center;
     line-height: 45px;
-    color: #fff;
+    color: #191970;
     z-index: 9999;
     font-size: 30px;
     border-radius: 6px;
@@ -150,7 +152,7 @@ section .title::after{
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 .scroll-up-btn.show{
     bottom: 30px;
@@ -165,9 +167,9 @@ section .title::after{
 /* home section styling */
 .home{
     display: flex;
-    background: url("asset/banner.jpg") no-repeat center;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
     height: 100vh;
-    color: #fff;
+    color: #191970;
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
@@ -193,13 +195,13 @@ section .title::after{
     margin: 5px 0;
 }
 .home .home-content .text-3 span{
-    color: crimson;
+    color: #191970;
     font-weight: 500;
 }
 .home .home-content a{
     display: inline-block;
-    background: crimson;
-    color: #fff;
+    background: #191970;
+    color: #4B0082;
     font-size: 25px;
     padding: 12px 36px;
     margin-top: 20px;
@@ -210,12 +212,23 @@ section .title::after{
 }
 .home .home-content a:hover{
     color: crimson;
-    background: none;
+    background: background: linear-gradient(to bottom, #66ffff 0%, #99ffcc 100%);
 }
 
 /* about section styling */
+.about{
+    
+    display: flex;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
+    height: 100vh;
+    color: #4B0082;
+    min-height: 500px;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
 .about .title::after{
-    content: "who i am";
+    content: "SAIFY ABID BHUIYAN";
 }
 .about .about-content .left{
     width: 45%;
@@ -242,14 +255,14 @@ section .title::after{
 }
 .about .about-content .right a{
     display: inline-block;
-    background: crimson;
+    background: linear-gradient(to bottom, #33cccc 0%, #ff99cc 100%);
     color: #fff;
     font-size: 20px;
     font-weight: 500;
     padding: 10px 30px;
     margin-top: 20px;
     border-radius: 6px;
-    border: 2px solid crimson;
+    border: 2px solid rgb(0, 0, 0);
     transition: all 0.3s ease;
 }
 .about .about-content .right a:hover{
@@ -258,30 +271,38 @@ section .title::after{
 }
 
 /* services section styling */
-.projects, .teams{
-    color:#fff;
-    background: #111;
+.projects{
+    display: flex;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
 }
+
 .projects .title::before,
 .teams .title::before{
     background: #fff;
 }
 .projects .title::after,
 .teams .title::after{
-    background: #111;
-    content: "what i provide";
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
+    content: "Created By me";
 }
 .projects .serv-content .card{
     width: calc(33% - 20px);
-    background: #222;
+    background: linear-gradient(to bottom, #99ccff 0%, #ff99cc 100%);
     text-align: center;
     border-radius: 6px;
     padding: 50px 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 .projects .serv-content .card:hover{
-    background: crimson;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+};
 }
 .projects .serv-content .card .box{
     transition: all 0.3s ease;
@@ -291,7 +312,7 @@ section .title::after{
 }
 .projects .serv-content .card i{
     font-size: 50px;
-    color: crimson;
+    color: #36d1dc → #5b86e5;
     transition: color 0.3s ease;
 }
 .projects .serv-content .card:hover i{
@@ -304,9 +325,19 @@ section .title::after{
 }
 
 /* skills section styling */
+.skills{  
+    display: flex;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
+    height: 100vh;
+    color: #4B0082;
+    min-height: 500px;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
 
 .skills .title::after{
-    content: "what i know";
+    content: "Expertise";
 }
 .skills .skills-content .column{
     width: calc(50% - 30px);
@@ -321,19 +352,19 @@ section .title::after{
 }
 .skills .skills-content .left a{
     display: inline-block;
-    background: rgb(0, 0, 0);
+    background: linear-gradient(to bottom, #66ffff 0%, #ff99cc 100%);
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     padding: 8px 16px;
     margin-top: 20px;
     border-radius: 6px;
-    border: 2px solid rgb(0, 0, 0);
+    border: linear-gradient(to bottom, #66ffff 0%, #ff99cc 100%);
     transition: all 0.3s ease;
 }
 .skills .skills-content .left a:hover{
     color: rgb(0, 0, 0);
-    background: none;
+    background: linear-gradient(to bottom, #ccff99 0%, #ff99cc 100%);
 }
 .skills .skills-content .right .bars{
     margin-bottom: 15px;
@@ -360,7 +391,7 @@ section .title::after{
     height: 100%;
     left: 0;
     top: 0;
-    background: rgb(0, 0, 0);
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
 }
 .skills-content .right .html::before{
     width: 90%;
@@ -379,8 +410,23 @@ section .title::after{
 }
 
 /* contact section styling */
+.contact{
+    
+    display: flex;
+    background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
+    height: 100vh;
+    color: #4B0082;
+    min-height: 500px;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
 .contact .title::after{
-    content: "get in touch";
+    content: "\A";
+    white-space: pre;
+    content: "Get in touch (Click On The Details)";
 }
 .contact .contact-content .column{
     width: calc(50% - 30px);
@@ -406,7 +452,7 @@ section .title::after{
 }
 .contact .contact-content .row i{
     font-size: 25px;
-    color: crimson;
+    color: #4B0082;
 }
 .contact .contact-content .info .head{
     font-weight: 500;
@@ -465,23 +511,23 @@ section .title::after{
   border-radius: 6px;
   cursor: pointer;
   flex-wrap: nowrap;
-  background: crimson;
-  border: 2px solid crimson;
+  background: #4B0082;
+  border: 2px solid #4B0082;
   transition: all 0.3s ease;
 }
 .right form .button-area button:hover{
-  color: crimson;
+  color: #4B0082;
   background: none;
 }
 /* footer section styling */
 footer{
-    background: #111;
+    background: linear-gradient(to bottom, #ffccff 0%, #ff00ff 100%);
     padding: 15px 23px;
     color: #fff;
     text-align: center;
 }
 footer span a{
-    color: crimson;
+    color: #4B0082;
     text-decoration: none;
 }
 footer span a:hover{
