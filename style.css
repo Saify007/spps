@@ -1,5 +1,7 @@
 /*  import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 
 *{
     margin: 0;
@@ -36,7 +38,7 @@ section{
     margin: auto;
 }
 .about, .projects, .skills, .contact, footer{
-    font-family: 'Lucida Sans Unicode', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 .about .about-content,
 .projects .serv-content,
@@ -54,7 +56,7 @@ section .title{
     font-weight: 500;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 section .title::before{
     content: "";
@@ -84,7 +86,7 @@ section .title::after{
     width: 100%;
     z-index: 999;
     padding: 30px 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     transition: all 0.3s ease;
 }
 .navbar.sticky{
@@ -173,7 +175,7 @@ section .title::after{
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 .home .max-width{
   width: 100%;
@@ -212,8 +214,23 @@ section .title::after{
 }
 .home .home-content a:hover{
     color: #4B0082;
-    background: background: linear-gradient(to bottom, #66ffff 0%, #99ffcc 100%);
+    background: linear-gradient(to bottom, #66ffff 0%, #99ffcc 100%);
 }
+
+.card {
+    width: 550px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  .card img {
+    width: 100%;
+    height: 100%;
+  }
+  .card-info {
+    padding: 10px;
+    font-weight: 500;
+  }
+
 
 /* about section styling */
 .about{
@@ -225,7 +242,9 @@ section .title::after{
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+
+    
 }
 .about .title::after{
     content: "SAIFY ABID BHUIYAN";
@@ -234,10 +253,12 @@ section .title::after{
     width: 45%;
 }
 .about .about-content .left img{
-    height: 400px;
-    width: 400px;
+    height: 60%;
+    width: 60%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
 }
 .about .about-content .right{
     width: 55%;
@@ -279,7 +300,9 @@ section .title::after{
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    
+
 }
 
 .projects .title::before,
@@ -299,11 +322,20 @@ section .title::after{
     padding: 50px 25px;
     cursor: pointer;
     transition: all 0.6s ease;
+
+    height: 380px;
+    width: 380px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    text-align: center;
+
+
+
+
 }
 .projects .serv-content .card:hover{
     background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
 };
-}
+
 .projects .serv-content .card .box{
     transition: all 0.3s ease;
 }
@@ -325,7 +357,8 @@ section .title::after{
 }
 
 /* skills section styling */
-.skills{  
+.skills{ 
+
     display: flex;
     background: linear-gradient(to bottom, #99ccff 0%, #ccffff 100%);
     height: 100vh;
@@ -333,7 +366,7 @@ section .title::after{
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .skills .title::after{
@@ -397,7 +430,7 @@ section .title::after{
     width: 90%;
 }
 .skills-content .right .css::before{
-    width: 60%;
+    width: 80%;
 }
 .skills-content .right .js::before{
     width: 80%;
@@ -419,12 +452,13 @@ section .title::after{
     min-height: 500px;
     background-size: 100%;
     background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    
     
 }
 
 .contact .title::after{
-    content: "\A";
+    content: "A";
     white-space: pre;
     content: "Get in touch (Click On The Details)";
 }
@@ -485,7 +519,7 @@ section .title::after{
     outline: none;
     padding: 0 15px;
     font-size: 17px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     transition: all 0.3s ease;
 }
 .contact .right form .field input:focus,
