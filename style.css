@@ -117,22 +117,22 @@ section .title::after{
 }
 .navbar .menu li a{
     display: block;
-    color: #191970;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
 }
 .navbar .menu li a:hover{
-    color: #191970;
+    color: #0d0dec;
 }
 .navbar.sticky .menu li a:hover{
-    color: #191970;
+    color: #5113fc;
 }
 
 /* menu btn styling */
 .menu-btn{
-    color: #191970;
+    color: #ffffff;
     font-size: 23px;
     cursor: pointer;
     display: none;
@@ -163,6 +163,8 @@ section .title::after{
 }
 .scroll-up-btn:hover{
     filter: brightness(90%);
+    color: #5113fc;
+    background: linear-gradient(to bottom, #87ff66 0%, #e6ff99 100%);
 }
 
 
@@ -303,7 +305,6 @@ section .title::after{
     background-attachment: fixed;
     font-family: 'Orbitron', sans-serif;
     
-
 }
 
 .projects .title::before,
@@ -328,10 +329,6 @@ section .title::after{
     width: 380px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     text-align: center;
-
-
-
-
 }
 .projects .serv-content .card:hover{
     background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
@@ -369,10 +366,6 @@ section .title::after{
     background-attachment: fixed;
     font-family: 'Orbitron', sans-serif;
     
-
-    
-    
-
 }
 
 .services .title::before,
@@ -393,12 +386,10 @@ section .title::after{
     padding: 30px 15px;
     cursor: pointer;
     transition: all 0.6s ease;
-
     height: 280px;
     width: 280px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     text-align: center;
-
 
 }
 .services .serv-content .card:hover{
@@ -528,8 +519,7 @@ section .title::after{
     background-size: 100%;
     background-attachment: fixed;
     font-family: 'Orbitron', sans-serif;
-    
-    
+       
 }
 
 .contact .title::after{
