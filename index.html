@@ -3,516 +3,914 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Saify Abid Bhuiyan - Full Stack Developer & Software Engineer based in Bangladesh. Specialized in web development, app development, and software project management.">
-    <meta name="keywords" content="Web Developer, Software Developer, Bangladesh, Full Stack, React, PHP, JavaScript">
+    <meta name="description" content="Saify Abid Bhuiyan - Full Stack Developer & Software Engineer based in Bangladesh. Building innovative digital solutions with modern technologies.">
     <title>Saify Abid Bhuiyan | Full Stack Developer & Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 </head>
 <body>
-    <div class="scroll-up-btn" title="Back to top">
-        <i class="fas fa-chevron-up"></i>
+
+    <!-- ====== PRELOADER ====== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-ring">
+                <svg viewBox="0 0 120 120">
+                    <circle class="preloader-circle-bg" cx="60" cy="60" r="54"/>
+                    <circle class="preloader-circle" cx="60" cy="60" r="54"/>
+                </svg>
+                <div class="preloader-icon">
+                    <span class="logo-bracket">{</span>
+                    <span class="logo-text">S</span>
+                    <span class="logo-bracket">}</span>
+                </div>
+            </div>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill" id="preloaderBar"></div>
+            </div>
+            <div class="preloader-text">
+                <span class="preloader-label" id="preloaderLabel">Initializing System</span>
+                <span class="preloader-percent" id="preloaderPercent">0%</span>
+            </div>
+        </div>
+        <div class="preloader-particles" id="preloaderParticles"></div>
     </div>
 
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo">
-                <a href="#home"><i class="fas fa-code"></i> <span>Saify.</span></a>
-            </div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#services" class="menu-btn">Services</a></li>
-                <li><a href="#projects" class="menu-btn">Projects</a></li>
-                <li><a href="#skills" class="menu-btn">Skills</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
+    <!-- ====== CURSOR GLOW ====== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ====== PAGE TRANSITION ====== -->
+    <div class="page-transition" id="pageTransition">
+        <div class="pt-layer pt-layer-1"></div>
+        <div class="pt-layer pt-layer-2"></div>
+        <div class="pt-layer pt-layer-3"></div>
+    </div>
+
+    <!-- ====== PARTICLE CANVAS ====== -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Scroll Up Button -->
+    <div class="scroll-up-btn" id="scrollUpBtn" title="Back to top">
+        <div class="scroll-up-ring">
+            <svg viewBox="0 0 48 48">
+                <circle class="su-ring-bg" cx="24" cy="24" r="22"/>
+                <circle class="su-ring-fill" cx="24" cy="24" r="22" id="suRingFill"/>
+            </svg>
+        </div>
+        <i class="fas fa-arrow-up"></i>
+        <span class="scroll-up-glow"></span>
+    </div>
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">{</span>
+                <span class="logo-text">Saify</span>
+                <span class="logo-bracket">}</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" role="menubar">
+                <li><a href="#home" class="nav-link active" data-text="Home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+                <li><a href="#education" class="nav-link" data-text="Education">Education</a></li>
+                <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
+                <li><a href="#services" class="nav-link" data-text="Services">Services</a></li>
+                <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+                <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link nav-cta"><span>Let's Talk</span><i class="fas fa-arrow-right"></i></a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- home section start -->
-    <section class="home" id="home">
-        <div class="home-wrapper">
-            <div class="max-width">
-                <div class="home-content">
-                    <div class="home-text">
-                        <h1 class="greeting">Hi, I'm <span class="name">Saify Abid Bhuiyan</span></h1>
-                        <p class="tagline">
-                            <span class="dynamic-text"></span>
-                        </p>
-                        <p class="description">
-                            A passionate full-stack developer and software engineer from Bangladesh, building innovative digital solutions with modern technologies. Specialized in web development, app development, and software project management.
-                        </p>
-                        <div class="cta-buttons">
-                            <a href="#projects" class="btn btn-primary">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://linkedin.com/in/saifyabidbhuiyan" target="_blank" title="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com" target="_blank" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="mailto:saify.abid1000@gmail.com" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="grid-overlay"></div>
+            <div class="hero-grid-lines"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">Available for projects</span>
+                    <span class="badge-shimmer"></span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line" data-delay="0">I Build</span>
+                    <span class="title-line gradient-text" data-delay="1">Digital</span>
+                    <span class="title-line gradient-text alt" data-delay="2">Experiences</span>
+                </h1>
+                <p class="hero-tagline">
+                    <span class="typed-wrapper"><span class="typed-text"></span></span>
+                </p>
+                <p class="hero-desc">
+                    Full-stack developer & software engineer from Dhaka, Bangladesh. Crafting robust web applications, enterprise solutions, and interactive digital products with modern technologies.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-glow magnetic">
+                        <span class="btn-text">View My Work</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        <span class="btn-shimmer"></span>
+                    </a>
+                    <a href="#contact" class="btn btn-outline-light magnetic">
+                        <span class="btn-text">Get In Touch</span>
+                        <span class="btn-border-anim"></span>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://linkedin.com/in/saifyabidbhuiyan" target="_blank" class="social-icon magnetic" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span class="social-glow"></span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-icon magnetic" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                        <span class="social-glow"></span>
+                    </a>
+                    <a href="mailto:saify.abid1000@gmail.com" class="social-icon magnetic" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                        <span class="social-glow"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="image-border-anim"></div>
+                    <div class="image-border-anim-2"></div>
+                    <img src="asset/saify.jpg" alt="Saify Abid Bhuiyan" class="hero-img">
+                    <div class="orbit-ring">
+                        <div class="orbit-dot dot-1"></div>
+                        <div class="orbit-dot dot-2"></div>
+                        <div class="orbit-dot dot-3"></div>
+                    </div>
+                    <div class="hero-pulse-ring"></div>
+                    <div class="hero-pulse-ring delay"></div>
+                    <div class="floating-badge badge-top">
+                        <div class="badge-icon"><i class="fas fa-briefcase"></i></div>
+                        <div>
+                            <span class="badge-value">2+</span>
+                            <span class="badge-label">Years of Experience</span>
                         </div>
                     </div>
-                    <div class="home-image">
-                        <div class="profile-card">
-                            <img src="asset/saify.jpg" alt="Saify Abid Bhuiyan">
+                    <div class="floating-badge badge-bottom">
+                        <div class="badge-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <span class="badge-value">M.Sc</span>
+                            <span class="badge-label">in Computer Science</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-        </div>
+        <a href="#about" class="scroll-down">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-line"></div>
+            <div class="scroll-dot"></div>
+        </a>
     </section>
 
-    <!-- about section start -->
+    <!-- ====== ABOUT ====== -->
     <section class="about" id="about">
-        <div class="max-width">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="asset/profile1.jpg" alt="Saify Abid Bhuiyan">
-                    <div class="stat-box">
-                        <div class="stat-item">
-                            <h3>Master's Degree</h3>
-                            <p>Computer Science</p>
-                            <small>AIUB, Bangladesh</small>
-                        </div>
+        <div class="section-glow left"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-col">
+                    <div class="about-img-box">
+                        <img src="asset/profile1.jpg" alt="Saify Abid Bhuiyan">
+                        <div class="about-img-decor"></div>
+                        <div class="about-img-glow"></div>
+                    </div>
+                    <div class="about-exp-pill">
+                        <span class="exp-num">2+</span>
+                        <span class="exp-label">Years of<br>Experience</span>
+                        <span class="pill-glow"></span>
                     </div>
                 </div>
-                <div class="about-text">
-                    <h3>I'm a <span class="typing-about"></span></h3>
-                    <p>I'm Saify, a dedicated software engineer based in Dhaka, Bangladesh, with a Master's degree in Computer Science from American International University-Bangladesh (AIUB). I have a passion for solving complex problems and creating innovative digital solutions that make a real impact.</p>
-
-                    <p>With expertise in full-stack development, I've worked on diverse projects ranging from healthcare platforms to transportation and hospitality management systems. I combine technical excellence with strong communication skills and a leadership mindset to deliver projects that exceed expectations.</p>
-
-                    <p>I'm particularly interested in emerging technologies and love exploring new frameworks and tools. My interests include learning new technologies, exploring innovative solutions, listening to tech podcasts, and staying active through various sports.</p>
-
-                    <p>I'm currently seeking challenging opportunities where I can leverage my technical expertise, leadership skills, and problem-solving abilities to contribute meaningfully to dynamic teams and organizations.</p>
-
-                    <div class="about-buttons">
-                        <a href="#contact" class="btn btn-primary">Available For Hire</a>
-                        <a href="#projects" class="btn btn-outline">View My Work</a>
+                <div class="about-text-col">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-heading">Passionate about creating <span class="highlight">impactful</span> software</h2>
+                    <p>I'm Saify, a dedicated software engineer based in Dhaka, Bangladesh, with a Master's degree in Computer Science from AIUB. I solve complex problems and create innovative digital solutions that make a real impact.</p>
+                    <p>With expertise in full-stack development, I've built diverse projects ranging from healthcare platforms to transportation and hospitality management systems, combining technical excellence with a leadership mindset.</p>
+                    <div class="about-stats-row">
+                        <div class="about-stat">
+                            <span class="about-stat-num" data-count="20">0</span><span class="about-stat-suffix">+</span>
+                            <span class="about-stat-label">Projects</span>
+                            <div class="stat-line"></div>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num" data-count="6">0</span><span class="about-stat-suffix">+</span>
+                            <span class="about-stat-label">Industries</span>
+                            <div class="stat-line"></div>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num" data-count="10">0</span><span class="about-stat-suffix">+</span>
+                            <span class="about-stat-label">Technologies</span>
+                            <div class="stat-line"></div>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num" data-count="100">0</span><span class="about-stat-suffix">%</span>
+                            <span class="about-stat-label">Dedication</span>
+                            <div class="stat-line"></div>
+                        </div>
+                    </div>
+                    <div class="about-actions">
+                        <a href="#contact" class="btn btn-primary magnetic"><span>Hire Me</span> <i class="fas fa-arrow-right"></i><span class="btn-shimmer"></span></a>
+                        <a href="#projects" class="btn btn-ghost-dark magnetic"><span>See My Work</span><span class="btn-border-anim"></span></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- services section start -->
+    <!-- ====== EDUCATION ====== -->
+    <section class="education" id="education">
+        <div class="education-shapes">
+            <div class="edu-shape es1"></div>
+            <div class="edu-shape es2"></div>
+        </div>
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label">Academic Journey</span>
+                <h2 class="section-heading">Education & <span class="highlight">Qualifications</span></h2>
+                <p class="section-desc">A strong academic foundation driving innovation and technical excellence</p>
+            </div>
+            <div class="edu-timeline">
+                <!-- MSc Card -->
+                <div class="edu-card tilt-card">
+                    <div class="edu-card-glow"></div>
+                    <div class="edu-card-border"></div>
+                    <div class="edu-timeline-badge">
+                        <div class="edu-timeline-dot"></div>
+                        <div class="edu-timeline-line"></div>
+                    </div>
+                    <div class="edu-card-content">
+                        <div class="edu-header">
+                            <div class="edu-icon-wrap">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="edu-degree-info">
+                                <span class="edu-year">2023 — 2024</span>
+                                <h3 class="edu-degree">Master of Science in Computer Science</h3>
+                                <span class="edu-specialization">Area of Specialization: Software Engineering</span>
+                                <span class="edu-institution"><i class="fas fa-university"></i> American International University-Bangladesh</span>
+                            </div>
+                        </div>
+                        <div class="edu-divider"></div>
+                        <div class="edu-activities">
+                            <span class="edu-activities-label"><i class="fas fa-star"></i> Activities & Seminars</span>
+                            <ul class="edu-activity-list">
+                                <li>
+                                    <span class="edu-activity-dot"></span>
+                                    <span class="edu-activity-text">Participate in seminar on: <em>'Use of machine learning and deep learning in biomedical signal classification and their applications in healthcare'</em></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BSc Card -->
+                <div class="edu-card tilt-card">
+                    <div class="edu-card-glow"></div>
+                    <div class="edu-card-border"></div>
+                    <div class="edu-timeline-badge">
+                        <div class="edu-timeline-dot"></div>
+                    </div>
+                    <div class="edu-card-content">
+                        <div class="edu-header">
+                            <div class="edu-icon-wrap accent-2">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="edu-degree-info">
+                                <span class="edu-year">2018 — 2022</span>
+                                <h3 class="edu-degree">Bachelor of Science in Computer Information System</h3>
+                                <span class="edu-institution"><i class="fas fa-university"></i> American International University-Bangladesh</span>
+                            </div>
+                        </div>
+                        <div class="edu-divider"></div>
+                        <div class="edu-activities">
+                            <span class="edu-activities-label"><i class="fas fa-star"></i> Activities & Participation</span>
+                            <ul class="edu-activity-list">
+                                <li>
+                                    <span class="edu-activity-dot"></span>
+                                    <span class="edu-activity-text">Participate in HUAWEI Training Webinar 2021</span>
+                                </li>
+                                <li>
+                                    <span class="edu-activity-dot"></span>
+                                    <span class="edu-activity-text">Participate in AIUB Cyber Gaming Fest 2022</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== EXPERIENCE ====== -->
+    <section class="experience" id="experience">
+        <div class="experience-shapes">
+            <div class="exp-shape xps1"></div>
+            <div class="exp-shape xps2"></div>
+        </div>
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label">Career Path</span>
+                <h2 class="section-heading">Professional <span class="highlight">Experience</span></h2>
+                <p class="section-desc">A proven track record of delivering high-impact software solutions across industries</p>
+            </div>
+            <div class="xp-timeline">
+                <!-- Senior Software Engineer — UniSoft -->
+                <div class="xp-card tilt-card">
+                    <div class="xp-card-glow"></div>
+                    <div class="xp-card-border"></div>
+                    <div class="xp-timeline-badge">
+                        <div class="xp-timeline-dot"></div>
+                        <div class="xp-timeline-line"></div>
+                    </div>
+                    <div class="xp-card-content">
+                        <div class="xp-header">
+                            <div class="xp-icon-wrap">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="xp-role-info">
+                                <div class="xp-meta-top">
+                                    <span class="xp-duration">April 2026 — Present · 2 months</span>
+                                    <span class="xp-type-badge">Full-time</span>
+                                </div>
+                                <h3 class="xp-role">Senior Software Engineer</h3>
+                                <div class="xp-company-row">
+                                    <span class="xp-company"><i class="fas fa-building"></i> UniSoft Systems Limited</span>
+                                    <span class="xp-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                                    <span class="xp-mode"><i class="fas fa-briefcase"></i> On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-divider"></div>
+                        <ul class="xp-responsibilities">
+                            <li><span class="xp-bullet"></span>Lead the architecture, design, and development of complex software systems with a strong focus on scalability, security, and maintainability.</li>
+                            <li><span class="xp-bullet"></span>Drive technical innovation by evaluating new technologies, improving development workflows, and implementing efficient engineering solutions to enhance overall system performance.</li>
+                            <li><span class="xp-bullet"></span>Collaborate closely with cross-functional teams including product managers, designers, and DevOps engineers to deliver high-quality software solutions on time.</li>
+                            <li><span class="xp-bullet"></span>Design and implement robust APIs, database structures, and cloud-based solutions while ensuring system stability, high availability, and seamless integration.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Senior Backend Engineer — Roaming Tours -->
+                <div class="xp-card tilt-card">
+                    <div class="xp-card-glow"></div>
+                    <div class="xp-card-border"></div>
+                    <div class="xp-timeline-badge">
+                        <div class="xp-timeline-dot accent-2"></div>
+                        <div class="xp-timeline-line"></div>
+                    </div>
+                    <div class="xp-card-content">
+                        <div class="xp-header">
+                            <div class="xp-icon-wrap accent-2">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="xp-role-info">
+                                <div class="xp-meta-top">
+                                    <span class="xp-duration">January 2026 — March 2026 · 3 months</span>
+                                    <span class="xp-type-badge">Full-time</span>
+                                </div>
+                                <h3 class="xp-role">Senior Backend Engineer</h3>
+                                <div class="xp-company-row">
+                                    <span class="xp-company"><i class="fas fa-building"></i> Roaming Tours & Travels</span>
+                                    <span class="xp-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                                    <span class="xp-mode"><i class="fas fa-briefcase"></i> On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-divider"></div>
+                        <ul class="xp-responsibilities">
+                            <li><span class="xp-bullet"></span>Build scalable, efficient, and secure applications using modern web technologies and best practices.</li>
+                            <li><span class="xp-bullet"></span>Troubleshoot, debug, and optimize applications for maximum performance and reliability.</li>
+                            <li><span class="xp-bullet"></span>Participate in code reviews and ensure adherence to best coding practices and quality standards.</li>
+                            <li><span class="xp-bullet"></span>Stay up-to-date with emerging technologies and continuously improve the backend infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Backend Engineer — Roaming Tours -->
+                <div class="xp-card tilt-card">
+                    <div class="xp-card-glow"></div>
+                    <div class="xp-card-border"></div>
+                    <div class="xp-timeline-badge">
+                        <div class="xp-timeline-dot accent-4"></div>
+                        <div class="xp-timeline-line"></div>
+                    </div>
+                    <div class="xp-card-content">
+                        <div class="xp-header">
+                            <div class="xp-icon-wrap accent-4">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="xp-role-info">
+                                <div class="xp-meta-top">
+                                    <span class="xp-duration">March 2025 — December 2025 · 10 months</span>
+                                    <span class="xp-type-badge">Full-time</span>
+                                </div>
+                                <h3 class="xp-role">Backend Engineer</h3>
+                                <div class="xp-company-row">
+                                    <span class="xp-company"><i class="fas fa-building"></i> Roaming Tours & Travels</span>
+                                    <span class="xp-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                                    <span class="xp-mode"><i class="fas fa-briefcase"></i> On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-divider"></div>
+                        <ul class="xp-responsibilities">
+                            <li><span class="xp-bullet"></span>Build scalable, efficient, and secure applications using modern web technologies and best practices.</li>
+                            <li><span class="xp-bullet"></span>Troubleshoot, debug, and optimize applications for maximum performance and reliability.</li>
+                            <li><span class="xp-bullet"></span>Participate in code reviews and ensure adherence to best coding practices and quality standards.</li>
+                            <li><span class="xp-bullet"></span>Stay up-to-date with emerging technologies and continuously improve the backend infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Intern Student — AIUB -->
+                <div class="xp-card tilt-card">
+                    <div class="xp-card-glow"></div>
+                    <div class="xp-card-border"></div>
+                    <div class="xp-timeline-badge">
+                        <div class="xp-timeline-dot accent-6"></div>
+                    </div>
+                    <div class="xp-card-content">
+                        <div class="xp-header">
+                            <div class="xp-icon-wrap accent-6">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="xp-role-info">
+                                <div class="xp-meta-top">
+                                    <span class="xp-duration">June 2022 — August 2022 · 3 months</span>
+                                    <span class="xp-type-badge internship">Internship</span>
+                                </div>
+                                <h3 class="xp-role">Intern Student</h3>
+                                <div class="xp-company-row">
+                                    <span class="xp-company"><i class="fas fa-university"></i> American International University-Bangladesh</span>
+                                    <span class="xp-location"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                                    <span class="xp-mode"><i class="fas fa-briefcase"></i> On-site</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-divider"></div>
+                        <ul class="xp-responsibilities">
+                            <li><span class="xp-bullet"></span>Assist the faculty members in preparing learning materials if required.</li>
+                            <li><span class="xp-bullet"></span>Attend student queries of the assigned faculty members.</li>
+                            <li><span class="xp-bullet"></span>Track course progress — assessment dates, deadlines, etc.</li>
+                            <li><span class="xp-bullet"></span>Help the assigned faculty member in research works.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SERVICES ====== -->
     <section class="services" id="services">
-        <div class="max-width">
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">What I can help you with</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
+        <div class="section-glow right"></div>
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label">What I Do</span>
+                <h2 class="section-heading">Services & <span class="highlight">Expertise</span></h2>
+                <p class="section-desc">Comprehensive digital solutions crafted with precision for businesses in Bangladesh and beyond</p>
+            </div>
+            <div class="services-bento">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Full Stack Development</h3>
-                    <p>End-to-end web development using modern technologies. Frontend expertise with HTML5, CSS3, Bootstrap, React, and backend support with MySQL, SQL, and PHP.</p>
-                    <ul>
-                        <li>Responsive Web Design</li>
+                    <p>End-to-end web development using HTML5, CSS3, Bootstrap, React for frontend, and PHP, MySQL for backend.</p>
+                    <ul class="service-tags">
+                        <li>Responsive Design</li>
                         <li>Frontend UI/UX</li>
-                        <li>Backend Development</li>
-                        <li>Database Design</li>
+                        <li>Backend</li>
+                        <li>Database</li>
                     </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap accent-2">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>Software Project Management</h3>
-                    <p>Comprehensive project development using industry-standard tools and methodologies. Expert understanding of SRS documentation and project lifecycle management.</p>
-                    <ul>
-                        <li>Jira & Monday Tools</li>
-                        <li>ERP Implementation</li>
-                        <li>SRS Documentation</li>
-                        <li>Project Planning</li>
+                    <h3>Project Management</h3>
+                    <p>Industry-standard project development with Jira, Monday.com, ERP implementation, and SRS documentation.</p>
+                    <ul class="service-tags">
+                        <li>Jira & Monday</li>
+                        <li>ERP</li>
+                        <li>SRS Docs</li>
+                        <li>Planning</li>
                     </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap accent-3">
                         <i class="fas fa-bug"></i>
                     </div>
                     <h3>Quality Assurance</h3>
-                    <p>Rigorous testing and quality assurance to ensure robust and reliable software solutions that meet industry standards.</p>
-                    <ul>
-                        <li>Test Plan Creation</li>
-                        <li>Test Case Development</li>
+                    <p>Rigorous testing with comprehensive test plans, test cases, bug tracking, and quality metrics.</p>
+                    <ul class="service-tags">
+                        <li>Test Plans</li>
+                        <li>Test Cases</li>
                         <li>Bug Tracking</li>
-                        <li>Quality Metrics</li>
+                        <li>QA Metrics</li>
                     </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap accent-4">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Application Development</h3>
-                    <p>Building powerful desktop and mobile applications using industry-leading programming languages for optimal performance.</p>
-                    <ul>
-                        <li>C++ Development</li>
-                        <li>C# Development</li>
-                        <li>Java Applications</li>
-                        <li>Desktop Software</li>
+                    <h3>App Development</h3>
+                    <p>Powerful desktop and mobile applications using C++, C#, and Java for optimal performance.</p>
+                    <ul class="service-tags">
+                        <li>C++</li>
+                        <li>C#</li>
+                        <li>Java</li>
+                        <li>Desktop</li>
                     </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap accent-5">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>UI/UX Design</h3>
-                    <p>Creating beautiful, intuitive user interfaces that enhance user experience and drive engagement.</p>
-                    <ul>
+                    <p>Beautiful, intuitive user interfaces with wireframing, visual design, and interactive prototyping.</p>
+                    <ul class="service-tags">
                         <li>Wireframing</li>
                         <li>Visual Design</li>
-                        <li>User Experience</li>
+                        <li>UX</li>
                         <li>Prototyping</li>
                     </ul>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="service-card tilt-card" data-tilt>
+                    <div class="service-card-glow"></div>
+                    <div class="service-card-border"></div>
+                    <div class="service-icon-wrap accent-6">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>Backend Solutions</h3>
-                    <p>Robust backend architecture and API development for scalable, secure, and high-performance applications.</p>
-                    <ul>
-                        <li>API Development</li>
-                        <li>Database Architecture</li>
-                        <li>System Integration</li>
-                        <li>Data Management</li>
+                    <p>Scalable backend architecture, API development, database design, and system integration.</p>
+                    <ul class="service-tags">
+                        <li>APIs</li>
+                        <li>Database</li>
+                        <li>Integration</li>
+                        <li>Security</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- projects section start -->
+    <!-- ====== PROJECTS ====== -->
     <section class="projects" id="projects">
-        <div class="max-width">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Projects I've created and deployed</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-heartbeat"></i>
+        <div class="section-glow left"></div>
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-heading">Featured <span class="highlight">Projects</span></h2>
+                <p class="section-desc">Real-world solutions built across healthcare, transportation, legal, hospitality, and more</p>
+            </div>
+            <div class="projects-bento">
+                <div class="project-card tilt-card featured" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Healthcare Management System</h3>
+                        <p>A comprehensive platform for doctors and patients to connect, book appointments, manage consultations with integrated payments.</p>
+                        <div class="project-techs">
+                            <span>PHP</span><span>Healthcare</span><span>Web App</span>
+                        </div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Medical Healthcare Management System</h3>
-                    <p>A comprehensive platform for doctors and patients to connect, book appointments, and manage consultations with integrated payment systems.</p>
-                    <div class="project-meta">
-                        <span class="tech">Web Application</span>
-                        <span class="tech">Healthcare</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-car"></i>
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap accent-2"><i class="fas fa-car"></i></div>
+                        <h3>Uber Management System</h3>
+                        <p>Ride-sharing platform in Java with driver ratings, history, and payment processing.</p>
+                        <div class="project-techs"><span>Java</span><span>Transport</span></div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Uber Management System</h3>
-                    <p>A ride-sharing platform built with Java, enabling riders to select drivers based on ratings and history, with integrated payment processing.</p>
-                    <div class="project-meta">
-                        <span class="tech">Java Application</span>
-                        <span class="tech">Transportation</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-hamburger"></i>
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap accent-3"><i class="fas fa-hamburger"></i></div>
+                        <h3>Campus Food Court Kiosk</h3>
+                        <p>Interactive ordering system for AIUB food court with real-time billing and inventory.</p>
+                        <div class="project-techs"><span>C++</span><span>POS</span></div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Campus Food Court Kiosk System</h3>
-                    <p>An interactive ordering system for AIUB food court allowing students to order pizza, burgers, and beverages with real-time billing and inventory management.</p>
-                    <div class="project-meta">
-                        <span class="tech">C++ Desktop App</span>
-                        <span class="tech">Point of Sale</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-balance-scale"></i>
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap accent-4"><i class="fas fa-balance-scale"></i></div>
+                        <h3>Forseti Legal Management</h3>
+                        <p>Web platform for lawyer-client communication, case management and legal consultations.</p>
+                        <div class="project-techs"><span>PHP</span><span>Legal Tech</span></div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Forseti Legal Management System</h3>
-                    <p>A web-based platform facilitating seamless communication between lawyers and clients for case management and legal consultations.</p>
-                    <div class="project-meta">
-                        <span class="tech">Web Application</span>
-                        <span class="tech">Legal Tech</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-taxi"></i>
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap accent-5"><i class="fas fa-taxi"></i></div>
+                        <h3>Vehicle Rental System</h3>
+                        <p>Intelligent rental platform with real-time tracking, automated booking and management.</p>
+                        <div class="project-techs"><span>Web Portal</span><span>Transport</span></div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Vehicle Rental System</h3>
-                    <p>An intelligent vehicle rental platform with real-time tracking, automated booking, and comprehensive management features for car rental businesses.</p>
-                    <div class="project-meta">
-                        <span class="tech">Web Portal</span>
-                        <span class="tech">Transportation</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-bed"></i>
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-card-glow"></div>
+                    <div class="project-card-inner">
+                        <div class="project-icon-wrap accent-6"><i class="fas fa-bed"></i></div>
+                        <h3>Hotel & Resort System</h3>
+                        <p>Comprehensive hotel management in C# — reservations, guest management, billing.</p>
+                        <div class="project-techs"><span>C#</span><span>Hospitality</span></div>
+                        <a href="#" class="project-arrow">View Details <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h3>Hotel & Resort Management System</h3>
-                    <p>A comprehensive management solution for hotels and resorts, built in C#, handling reservations, guest management, billing, and operations.</p>
-                    <div class="project-meta">
-                        <span class="tech">C# Application</span>
-                        <span class="tech">Hospitality</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- skills section start -->
+    <!-- ====== SKILLS ====== -->
     <section class="skills" id="skills">
-        <div class="max-width">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-subtitle">Technologies & Tools I work with</p>
-
-            <div class="skills-content">
-                <div class="skills-column">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML5</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>CSS3</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
+        <div class="skills-shapes">
+            <div class="skills-shape ss1"></div>
+            <div class="skills-shape ss2"></div>
+        </div>
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label light">Capabilities</span>
+                <h2 class="section-heading light">Technical <span class="highlight">Skills</span></h2>
+                <p class="section-desc light">Technologies and tools I use to bring ideas to life</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-item"><div class="skill-info"><span>HTML5</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>CSS3</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>React</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Bootstrap</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
                 </div>
-
-                <div class="skills-column">
-                    <h3>Backend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>PHP</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MySQL</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Java</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-item"><div class="skill-info"><span>PHP</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>MySQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>SQL</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>API Dev</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div></div>
                 </div>
-
-                <div class="skills-column">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C++</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C#</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-terminal"></i> Languages</h3>
+                    <div class="skill-item"><div class="skill-info"><span>C++</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>C#</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Java</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Python</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div></div>
+                </div>
+            </div>
+            <div class="tools-ticker">
+                <div class="ticker-track">
+                    <div class="ticker-item"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="ticker-item"><i class="fab fa-github"></i> GitHub</div>
+                    <div class="ticker-item"><i class="fab fa-jira"></i> Jira</div>
+                    <div class="ticker-item"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="ticker-item"><i class="fas fa-cloud"></i> Hosting</div>
+                    <div class="ticker-item"><i class="fas fa-paint-brush"></i> Figma</div>
+                    <div class="ticker-item"><i class="fas fa-code-branch"></i> VS Code</div>
+                    <div class="ticker-item"><i class="fas fa-tasks"></i> Monday</div>
+                    <div class="ticker-item"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="ticker-item"><i class="fab fa-github"></i> GitHub</div>
+                    <div class="ticker-item"><i class="fab fa-jira"></i> Jira</div>
+                    <div class="ticker-item"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="ticker-item"><i class="fas fa-cloud"></i> Hosting</div>
+                    <div class="ticker-item"><i class="fas fa-paint-brush"></i> Figma</div>
+                    <div class="ticker-item"><i class="fas fa-code-branch"></i> VS Code</div>
+                    <div class="ticker-item"><i class="fas fa-tasks"></i> Monday</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- contact section start -->
+    <!-- ====== FAQ ====== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-heading">Common <span class="highlight">Questions</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What technologies do you specialize in?</span>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="faq-content"><p>HTML5, CSS3, JavaScript, React, PHP, MySQL, C++, C#, and Java. I use Jira and Monday.com for project management, and I'm proficient in both frontend and backend development.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What is your development process?</span>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="faq-content"><p>Four phases: Discovery & Planning, Design & Prototyping, Development & Testing, and Deployment & Support. Each phase includes regular communication and feedback loops.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Do you work with international clients?</span>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="faq-content"><p>Yes! While based in Dhaka, I work globally with remote collaboration tools and flexible time zones. My rates are competitive internationally while delivering top-quality results.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>How do you handle project deadlines?</span>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="faq-content"><p>I create detailed project plans with milestones using Jira, and provide regular updates. Realistic timelines and transparent communication are core to my approach.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Do you provide post-launch support?</span>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="faq-content"><p>Absolutely — bug fixes, performance optimization, security updates, and feature enhancements. I build long-term relationships with all my clients.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="cta-section" id="cta">
+        <div class="cta-shapes">
+            <div class="cta-shape cs1"></div>
+            <div class="cta-shape cs2"></div>
+        </div>
+        <div class="cta-grid-lines"></div>
+        <div class="container">
+            <h2>Ready to build something <span class="gradient-text">amazing</span>?</h2>
+            <p>Let's discuss your project and create a solution that drives real results for your business.</p>
+            <div class="cta-btns">
+                <a href="#contact" class="btn btn-glow magnetic"><span>Start a Project</span> <i class="fas fa-arrow-right"></i><span class="btn-shimmer"></span></a>
+                <a href="mailto:saify.abid1000@gmail.com" class="btn btn-outline-light magnetic"><span>Send Email</span><span class="btn-border-anim"></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
     <section class="contact" id="contact">
-        <div class="max-width">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's collaborate on your next project</p>
-
-            <div class="contact-content">
+        <div class="section-glow right"></div>
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-heading">Let's <span class="highlight">Connect</span></h2>
+                <p class="section-desc">Have a project in mind? Let's talk about how I can help bring your vision to life.</p>
+            </div>
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="info-details">
-                            <h4>Name</h4>
-                            <p>Saify Abid Bhuiyan</p>
-                        </div>
+                    <div class="contact-card tilt-card">
+                        <div class="contact-icon"><i class="fas fa-user"></i></div>
+                        <div><strong>Name</strong><p>Saify Abid Bhuiyan</p></div>
+                        <div class="contact-card-glow"></div>
                     </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-details">
-                            <h4>Location</h4>
-                            <p>Dhaka, Bangladesh</p>
-                        </div>
+                    <div class="contact-card tilt-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><strong>Location</strong><p>Dhaka, Bangladesh</p></div>
+                        <div class="contact-card-glow"></div>
                     </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-details">
-                            <h4>Email</h4>
-                            <p><a href="mailto:saify.abid1000@gmail.com">saify.abid1000@gmail.com</a></p>
-                        </div>
+                    <div class="contact-card tilt-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div><strong>Email</strong><p><a href="mailto:saify.abid1000@gmail.com">saify.abid1000@gmail.com</a></p></div>
+                        <div class="contact-card-glow"></div>
                     </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-details">
-                            <h4>Available Hours</h4>
-                            <p>Friday & Sunday: 10:00 - 21:00</p>
-                        </div>
+                    <div class="contact-card tilt-card">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div><strong>Available</strong><p>Fri & Sun: 10:00 - 21:00 (BST)</p></div>
+                        <div class="contact-card-glow"></div>
                     </div>
-
-                    <div class="contact-social">
-                        <h4>Connect on Social</h4>
-                        <div class="social-icons">
-                            <a href="https://linkedin.com/in/saifyabidbhuiyan" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
+                    <div class="contact-socials">
+                        <a href="https://linkedin.com/in/saifyabidbhuiyan" target="_blank" class="social-icon magnetic" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i><span class="social-glow"></span></a>
+                        <a href="https://github.com" target="_blank" class="social-icon magnetic" aria-label="GitHub"><i class="fab fa-github"></i><span class="social-glow"></span></a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon magnetic" aria-label="Twitter"><i class="fab fa-twitter"></i><span class="social-glow"></span></a>
+                        <a href="mailto:saify.abid1000@gmail.com" class="social-icon magnetic" aria-label="Email"><i class="fas fa-envelope"></i><span class="social-glow"></span></a>
                     </div>
                 </div>
-
-                <div class="contact-form-wrapper">
-                    <h3>Send Message</h3>
+                <div class="contact-form-wrap">
                     <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input type="text" id="name" placeholder=" " required>
+                                <label for="name">Your Name</label>
+                                <div class="field-line"></div>
+                            </div>
+                            <div class="form-field">
+                                <input type="email" id="email" placeholder=" " required>
+                                <label for="email">Your Email</label>
+                                <div class="field-line"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                        <div class="form-field">
+                            <input type="text" id="subject" placeholder=" " required>
+                            <label for="subject">Subject</label>
+                            <div class="field-line"></div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                        <div class="form-field">
+                            <textarea id="message" placeholder=" " rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="field-line"></div>
                         </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-full magnetic">
+                            <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+                            <span class="btn-shimmer"></span>
+                        </button>
                     </form>
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon"><i class="fas fa-check"></i></div>
+                        <p>Message sent successfully!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- footer section start -->
-    <footer>
-        <div class="max-width">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Saify Abid Bhuiyan</h4>
-                    <p>Full Stack Developer & Software Engineer based in Dhaka, Bangladesh</p>
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="logo-bracket">{</span> Saify <span class="logo-bracket">}</span>
+                    </a>
+                    <p>Full Stack Developer & Software Engineer based in Dhaka, Bangladesh. Building innovative digital solutions.</p>
+                    <div class="footer-socials">
+                        <a href="https://linkedin.com/in/saifyabidbhuiyan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:saify.abid1000@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
+                <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#services">Web Development</a></li>
                         <li><a href="#services">App Development</a></li>
                         <li><a href="#services">Quality Assurance</a></li>
                         <li><a href="#services">Project Management</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+                        <li><a href="mailto:saify.abid1000@gmail.com"><i class="fas fa-envelope"></i> saify.abid1000@gmail.com</a></li>
+                        <li><i class="fas fa-clock"></i> Fri & Sun: 10:00 - 21:00</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Saify Abid Bhuiyan. All rights reserved.</p>
-                <p>Designed & Developed with <span class="heart">♥</span> in Bangladesh</p>
+                <p>&copy; 2025 Saify Abid Bhuiyan. All rights reserved.</p>
+                <p>Made with <span class="heart">&hearts;</span> in Bangladesh</p>
             </div>
         </div>
     </footer>
