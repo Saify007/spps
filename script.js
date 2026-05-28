@@ -260,67 +260,74 @@ $(document).ready(function () {
     }
 
     // ============================================
-    // 3D TILT EFFECT ON CARDS
+    // TOUCH DEVICE DETECTION
     // ============================================
-    var tiltCards = document.querySelectorAll('.tilt-card');
-
-    tiltCards.forEach(function (card) {
-        card.addEventListener('mousemove', function (e) {
-            var rect = card.getBoundingClientRect();
-            var x = e.clientX - rect.left;
-            var y = e.clientY - rect.top;
-            var centerX = rect.width / 2;
-            var centerY = rect.height / 2;
-            var rotateX = ((y - centerY) / centerY) * -5;
-            var rotateY = ((x - centerX) / centerX) * 5;
-
-            card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
-
-            // Move glow
-            var glow = card.querySelector('.service-card-glow');
-            if (glow) {
-                glow.style.opacity = '1';
-                glow.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(0,229,255,0.12), transparent 60%)';
-            }
-
-            // Move project card glow
-            var pGlow = card.querySelector('.project-card-glow');
-            if (pGlow) {
-                var px = (x / rect.width) * 100;
-                var py = (y / rect.height) * 100;
-                card.style.setProperty('--mx', px + '%');
-                card.style.setProperty('--my', py + '%');
-            }
-        });
-
-        card.addEventListener('mouseleave', function () {
-            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-            card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            var glow = card.querySelector('.service-card-glow');
-            if (glow) { glow.style.opacity = '0'; }
-            setTimeout(function () { card.style.transition = ''; }, 500);
-        });
-    });
+    var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     // ============================================
-    // MAGNETIC BUTTONS
+    // 3D TILT EFFECT ON CARDS (desktop only)
     // ============================================
-    var magneticEls = document.querySelectorAll('.magnetic');
+    if (!isTouchDevice) {
+        var tiltCards = document.querySelectorAll('.tilt-card');
 
-    magneticEls.forEach(function (el) {
-        el.addEventListener('mousemove', function (e) {
-            var rect = el.getBoundingClientRect();
-            var x = e.clientX - rect.left - rect.width / 2;
-            var y = e.clientY - rect.top - rect.height / 2;
-            el.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
-        });
+        tiltCards.forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+                var rotateX = ((y - centerY) / centerY) * -5;
+                var rotateY = ((x - centerX) / centerX) * 5;
 
-        el.addEventListener('mouseleave', function () {
-            el.style.transform = '';
-            el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            setTimeout(function () { el.style.transition = ''; }, 500);
+                card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-6px)';
+
+                var glow = card.querySelector('.service-card-glow');
+                if (glow) {
+                    glow.style.opacity = '1';
+                    glow.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(0,229,255,0.12), transparent 60%)';
+                }
+
+                var pGlow = card.querySelector('.project-card-glow');
+                if (pGlow) {
+                    var px = (x / rect.width) * 100;
+                    var py = (y / rect.height) * 100;
+                    card.style.setProperty('--mx', px + '%');
+                    card.style.setProperty('--my', py + '%');
+                }
+            });
+
+            card.addEventListener('mouseleave', function () {
+                card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+                card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                var glow = card.querySelector('.service-card-glow');
+                if (glow) { glow.style.opacity = '0'; }
+                setTimeout(function () { card.style.transition = ''; }, 500);
+            });
         });
-    });
+    }
+
+    // ============================================
+    // MAGNETIC BUTTONS (desktop only)
+    // ============================================
+    if (!isTouchDevice) {
+        var magneticEls = document.querySelectorAll('.magnetic');
+
+        magneticEls.forEach(function (el) {
+            el.addEventListener('mousemove', function (e) {
+                var rect = el.getBoundingClientRect();
+                var x = e.clientX - rect.left - rect.width / 2;
+                var y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
+            });
+
+            el.addEventListener('mouseleave', function () {
+                el.style.transform = '';
+                el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                setTimeout(function () { el.style.transition = ''; }, 500);
+            });
+        });
+    }
 
     // ============================================
     // SCROLL REVEAL
@@ -466,17 +473,19 @@ $(document).ready(function () {
     });
 
     // ============================================
-    // PROJECT CARD MOUSE GLOW
+    // PROJECT CARD MOUSE GLOW (desktop only)
     // ============================================
-    document.querySelectorAll('.project-card').forEach(function (card) {
-        card.addEventListener('mousemove', function (e) {
-            var rect = card.getBoundingClientRect();
-            var x = ((e.clientX - rect.left) / rect.width) * 100;
-            var y = ((e.clientY - rect.top) / rect.height) * 100;
-            card.style.setProperty('--mx', x + '%');
-            card.style.setProperty('--my', y + '%');
+    if (!isTouchDevice) {
+        document.querySelectorAll('.project-card').forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = ((e.clientX - rect.left) / rect.width) * 100;
+                var y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mx', x + '%');
+                card.style.setProperty('--my', y + '%');
+            });
         });
-    });
+    }
 });
 
 // Prevent page jump on # links
